@@ -4,7 +4,6 @@ package trufapalooza;
 //Importes Realizados
 import java.awt.*;
 import java.awt.event.*;
-import java.awt.image.BufferedImage;
 import java.io.BufferedInputStream;
 import javax.swing.*;
 import java.util.Random;
@@ -33,17 +32,16 @@ class Ventana extends JFrame{
     public Ventana() throws UnsupportedAudioFileException, LineUnavailableException, IOException { //Si no se colocan las excepciones no se puede manejar el archivo de la música
         try {
             ImageIcon icon; // Creo variable para poner mi icono de ventana
-            setSize(1000, 547); // Defino las dimensiones de mi ventana, un poco mas grande en dimensión y para que salga correctamente el label de fondo
+            setSize(1000, 537); // Defino las dimensiones de mi ventana, un poco mas grande en dimensión y para que salga correctamente el label de fondo
             setTitle("Trufapalooza"); // Deifinición de título
 
             setDefaultCloseOperation(EXIT_ON_CLOSE); // Cerrar programa al cerrar ventana
             setLocationRelativeTo(null); // Se coloca en el centro de la pantalla
             setResizable(false); // Para evitar que me redimensionen la ventana
 
-            // Load the icon from the resources directory
+            // Se carga el icono de resources
             InputStream inputStream = getClass().getResourceAsStream("/trufapalooza/resources/rareTruffle.png");
-            BufferedImage image = ImageIO.read(inputStream);
-            icon = new ImageIcon(image);
+            icon = new ImageIcon(ImageIO.read(inputStream));
             setIconImage(icon.getImage());
 
             agregarElementos(); // Método para agregar todos los elementos
@@ -78,8 +76,8 @@ class Ventana extends JFrame{
         try {
             imagenFondo = new ImageIcon(getClass().getResource("/trufapalooza/resources/danceFloor.gif"));// Se carga el fondo animado
 
-            fondo = new JLabel(); // Create a JLabel with the animated GIF
-            fondo.setOpaque(true);// Al definir opaque, permite editar la etiqueta según sea necesario
+            fondo = new JLabel(); // Se crea un JLabel con el GIF animado
+            fondo.setOpaque(true);// Al definir Opaque, permite editar la etiqueta según sea necesario
             fondo.setIcon(imagenFondo);// Establecer el GIF como ícono
             fondo.setBounds(0, 0, 1000, 500);// Definir dimensiones y tamaño de la etiqueta
 
@@ -95,20 +93,20 @@ class Ventana extends JFrame{
     // Hongo1
     public void agregarHongo1() {
         try {
-            // Load the animated GIF using ImageIcon
+            // Se carga el GIF con ImageIcon
             imagenHongo = new ImageIcon(getClass().getResource("/trufapalooza/resources/whiteMushroom.gif"));
 
             hongo1 = new JButton();
-            hongo1.setBackground(new Color(0, 0, 0, 0)); // Transparent background
-            hongo1.setOpaque(false);
-            hongo1.setIcon(imagenHongo);
-            hongo1.setBounds(113, 205, 246, 296);
-            hongo1.setBorderPainted(false);
-            panel.add(hongo1, Integer.valueOf(3));
+            hongo1.setBackground(new Color(0, 0, 0, 0)); //Al ser 0,0,0,0 , es color transparente
+            hongo1.setOpaque(false); //Ayuda a establecer como transparente el boton
+            hongo1.setIcon(imagenHongo); //Cargo mi imagen de fondo
+            hongo1.setBounds(113, 205, 246, 296); //Defino posiciones y dimensiones
+            hongo1.setBorderPainted(false); //Le quito el borde al boton
+            panel.add(hongo1, Integer.valueOf(3)); //Agrego y defino la capa 
 
-            // Action listener to stop the process when clicked
+            // Oyente de accion para parar el proceso cuando se le da click
             ActionListener oyenteDeAccion = (ActionEvent e) -> {
-                tiempo2.parar(1); // Stop the process to avoid losing
+                tiempo2.parar(1); //Se para el proceso forajido antes de que te haga perder
             };
 
             hongo1.addActionListener(oyenteDeAccion);
@@ -123,11 +121,10 @@ class Ventana extends JFrame{
     // Hongo2
     public void agregarHongo2() {
         try {
-            // Load the animated GIF using ImageIcon
             imagenHongo = new ImageIcon(getClass().getResource("/trufapalooza/resources/whiteMushroom.gif"));
 
             hongo2 = new JButton();
-            hongo2.setBackground(new Color(0, 0, 0, 0)); // Transparent background
+            hongo2.setBackground(new Color(0, 0, 0, 0));
             hongo2.setOpaque(false);
             hongo2.setIcon(imagenHongo);
             hongo2.setBounds(380, 205, 246, 296);
@@ -136,7 +133,7 @@ class Ventana extends JFrame{
 
             // Action listener to stop the process when clicked
             ActionListener oyenteDeAccion = (ActionEvent e) -> {
-                tiempo2.parar(2); // Stop the process to avoid losing
+                tiempo2.parar(2); //Se para el proceso forajido antes de que te haga perder
             };
 
             hongo2.addActionListener(oyenteDeAccion);
@@ -151,20 +148,18 @@ class Ventana extends JFrame{
     // Hongo3
     public void agregarHongo3() {
         try {
-            // Load the animated GIF using ImageIcon
             imagenHongo = new ImageIcon(getClass().getResource("/trufapalooza/resources/whiteMushroom.gif"));
 
             hongo3 = new JButton();
-            hongo3.setBackground(new Color(0, 0, 0, 0)); // Transparent background
+            hongo3.setBackground(new Color(0, 0, 0, 0));
             hongo3.setOpaque(false);
             hongo3.setIcon(imagenHongo);
             hongo3.setBounds(647, 205, 246, 296);
             hongo3.setBorderPainted(false);
             panel.add(hongo3, Integer.valueOf(3));
 
-            // Action listener to stop the process when clicked
             ActionListener oyenteDeAccion = (ActionEvent e) -> {
-                tiempo2.parar(3); // Stop the process to avoid losing
+                tiempo2.parar(3); //Se para el proceso forajido antes de que te haga perder
             };
 
             hongo3.addActionListener(oyenteDeAccion);
@@ -177,22 +172,20 @@ class Ventana extends JFrame{
     
     
     // HongoEspecial
-public void agregarHongoEspecial() {
+    public void agregarHongoEspecial() {
         try {
-            // Load the animated GIF using ImageIcon
-            ImageIcon imageIcon = new ImageIcon(getClass().getResource("/trufapalooza/resources/pinkAgaricus.gif"));
+            imagenHongoEspecial = new ImageIcon(getClass().getResource("/trufapalooza/resources/pinkAgaricus.gif"));
 
             hongoEspecial = new JButton();
-            hongoEspecial.setBackground(new Color(0, 0, 0, 0)); // Transparent background
+            hongoEspecial.setBackground(new Color(0, 0, 0, 0));
             hongoEspecial.setOpaque(false);
-            hongoEspecial.setIcon(imageIcon);
+            hongoEspecial.setIcon(imagenHongoEspecial);
             hongoEspecial.setBounds(305, 35, 360, 360);
             hongoEspecial.setBorderPainted(false);
             panel.add(hongoEspecial, Integer.valueOf(2));
 
-            // Action listener to stop the process when clicked
             ActionListener oyenteDeAccion = (ActionEvent e) -> {
-                tiempo2.parar(4); // Stop the process to avoid losing
+                tiempo2.parar(4); //Se para el proceso forajido antes de que te haga perder
             };
 
             hongoEspecial.addActionListener(oyenteDeAccion);
@@ -203,26 +196,24 @@ public void agregarHongoEspecial() {
 
 
     
-// Contador de tiempo y hongos
+    // Contador de tiempo y hongos
     public void agregarContadores() {
         try {
             // Imagen contador Hongos
             InputStream inputStreamContador = getClass().getResourceAsStream("/trufapalooza/resources/whiteMushroom.png");
-            BufferedImage imageContador = ImageIO.read(inputStreamContador);
-            imagenContador = new ImageIcon(imageContador);
+            imagenContador = new ImageIcon(ImageIO.read(inputStreamContador));
 
-            fotoContador = new JLabel();
+            fotoContador = new JLabel(); //Creo mi etiqueta
             fotoContador.setBackground(new Color(0, 0, 0, 0)); // Fondo transparente
-            fotoContador.setOpaque(false);
-            fotoContador.setIcon(imagenContador);
-            fotoContador.setBounds(16, 16, 45, 75);
+            fotoContador.setOpaque(false); //Ayuda a que este transparente
+            fotoContador.setIcon(imagenContador); //Asigno el icono
+            fotoContador.setBounds(16, 16, 45, 75); //Defino posición y dimensiones
             fotoContador.setIcon(new ImageIcon(imagenContador.getImage().getScaledInstance(fotoContador.getWidth(), fotoContador.getHeight(), Image.SCALE_SMOOTH))); // Escalo la imagen
-            panel.add(fotoContador, Integer.valueOf(2));
+            panel.add(fotoContador, Integer.valueOf(2)); //Agrego y asigno a capa correspondiente
 
             // Imagen cronometro
             InputStream inputStreamCronometro = getClass().getResourceAsStream("/trufapalooza/resources/fotoCronometro.png");
-            BufferedImage imageCronometro = ImageIO.read(inputStreamCronometro);
-            imagenCronometro = new ImageIcon(imageCronometro);
+            imagenCronometro = new ImageIcon(ImageIO.read(inputStreamCronometro));
 
             fotoCronometro = new JLabel();
             fotoCronometro.setBackground(new Color(0, 0, 0, 0)); // Fondo transparente
@@ -239,14 +230,14 @@ public void agregarHongoEspecial() {
         // Contador Hongos
         contadorHongos = new JLabel();
         contadorHongos.setText("0");
-        contadorHongos.setBounds(50, 18, 75, 75);
-        contadorHongos.setVerticalAlignment(SwingConstants.CENTER);
+        contadorHongos.setBounds(50, 18, 75, 75); //Defino posicion x,y, y dimensiones de mi etiqueta
+        contadorHongos.setVerticalAlignment(SwingConstants.CENTER); //Con esto y la siguiente linea defino posicion de mi texto
         contadorHongos.setHorizontalAlignment(SwingConstants.CENTER);
-        contadorHongos.setOpaque(true);
+        contadorHongos.setOpaque(true); //Mayor libertad, de fondo y diseño en caso de ser necesario
         contadorHongos.setForeground(Color.YELLOW);
         contadorHongos.setBackground(Color.BLACK);
         contadorHongos.setFont(new Font("Arcadepix", Font.PLAIN, 30));
-        panel.add(contadorHongos, Integer.valueOf(2));
+        panel.add(contadorHongos, Integer.valueOf(2)); //Agrego mi etiqueta
 
         // Contador cronometro
         cronometro = new JLabel();
@@ -271,19 +262,19 @@ public void agregarHongoEspecial() {
 
             start = new JButton();
             start.setBackground(new Color(0, 0, 0, 0)); // Fondo transparente
-            start.setOpaque(false);
-            start.setIcon(imagenStart);
-            start.setBounds(134, 25, 100, 50);
+            start.setOpaque(false); //Ayuda a definir mi fondo
+            start.setIcon(imagenStart); //Asigno mi imagen
+            start.setBounds(134, 25, 100, 50); //Defino dimensiones
             start.setIcon(new ImageIcon(imagenStart.getImage().getScaledInstance(start.getWidth(), start.getHeight(), Image.SCALE_SMOOTH)));
-            start.setBorderPainted(false);
-            panel.add(start, Integer.valueOf(2));
+            start.setBorderPainted(false); //Borde transparente
+            panel.add(start, Integer.valueOf(2)); //Agrego y asigno la capa
 
             ActionListener oyenteDeAccion = (ActionEvent e) -> {
                 tiempo2 = new Temporizador2(cronometro, contadorHongos, hongo1, hongo2, hongo3, hongoEspecial, start, clip);
                 tiempo2.iniciar();
                 tiempo2.start();
-                start.setVisible(false);
-                contadorHongos.setText("0");
+                start.setVisible(false); //Para que ya no se pueda volver a interactuar con el boton
+                contadorHongos.setText("0"); //Cada vez que se le da a start, inica en 0 el contador
             };
 
             start.addActionListener(oyenteDeAccion);
