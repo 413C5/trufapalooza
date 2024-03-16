@@ -70,4 +70,10 @@
     nbproject/build-impl.xml file. 
 
     -->
+
+    <fileset dir="${build.classes.dir}">
+        <include name="trufapalooza/resources/**"/>
+    </fileset>
+
+
 </project>
