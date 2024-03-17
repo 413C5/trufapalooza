@@ -2,7 +2,7 @@
 
 Welcome to Trufapalooza, a fun and addictive mushroom clicking game! In Trufapalooza, your goal is to click on mushrooms as quickly as possible to earn points before the time runs out.
 
-# How to play
+# How to Play
 
 ## Start the Game
 
@@ -28,6 +28,6 @@ Keep an eye out for mushrooms that appear on the screen. Each mushroom you click
 # How to Run the Game
 You can compile this project using the latest version of Netbeans, or alternatively, download the file from releases.
 
-# About this project
+# About this Project
 
 This project was made in Java in order to demonstrate the use of threads using JDK 8u391.
